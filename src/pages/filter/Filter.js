@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 
+
 function Filter(props) {
 
     const genderOptions = [
@@ -17,29 +18,25 @@ function Filter(props) {
         { value: 4, label: '6-8' },
         { value: 5, label: 'Over 8' }
     ]
-    const [gender, setGender] = useState(genderOptions[0])
-    const [age, setAge] = useState(ageOptions[0])
 
-    function onChangeGender(params) {
-        setGender(params)
-    }
-    function onChangeAge(params) {
-        setAge(params)
-    }
+    
 
     return (
         <div id='filter'>
             <div id='ddl-gender'>
                 <Dropdown options={genderOptions}
-                    onChange={onChangeGender} value={gender}
-                    placeholder="Select an option" />
+                    onChange={props.callOnChangeGender} value={props.gender}
+                    placeholder="Select Gender" />
             </div>
             <div id='ddl-age'>
                 <Dropdown options={ageOptions}
-                    onChange={onChangeAge} value={age}
-                    placeholder="Select an option" />
+                    onChange={props.callOnChangeAge} value={props.age}
+                    placeholder="Select Age" />
             </div>
+                <button onClick={e => props.history.push(`/result?age=${props.age.value}&gender=${props.gender.value}`)}>Search</button>
         </div>
+
+
     )
 }
 
