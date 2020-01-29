@@ -9,6 +9,7 @@ import {
   Link,
 } from "react-router-dom";
 import Filter from './pages/filter/Filter';
+import Detail from './pages/detail/Detail';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             <Result {...props}/>
           </div>
         )} />
+        <Route path='/detail'>
+          <Detail></Detail>
+        </Route>
     </Router>
   );
 }
