@@ -1,9 +1,13 @@
 import React from 'react';
+import ResultRow from './row';
 
 function Result(props) {
+  console.log(props)
   return (
     <div id="result" className="table">
-      <h1>Search Result</h1>
+      <h1 id="txt_result">Search Result</h1>
+          {/* {props.match.params.gender}
+            {props.match.params.age} */}
       <table>
           <thead>
               
@@ -16,13 +20,11 @@ function Result(props) {
               </tr>
           </thead>
           <tbody>
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
+            
+            
+            {/* {props.result.map((item, key) =>
+              <ResultRow item={item}></ResultRow>
+            )} */}
           </tbody>
       </table>
     </div>

@@ -2,8 +2,8 @@
 Function And Parameter Naming Conventions
 
 ## File Name
-snake_case ขั้นด้วย underscore และเป็นตัวเล็กทั้งหมด เช่น
-filename_1.js
+camelCase ขึ้นต้นด้วยตัวใหญ่ เช่น
+OrderService.js
 
 ## Package Name
 ใช้ตัวอักษรพิมพ์เล็กทั้งหมด เช่น
