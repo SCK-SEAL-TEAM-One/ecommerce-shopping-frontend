@@ -1,29 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import Result from './pages/result';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
+  Link,
 } from "react-router-dom";
+import Filter from './pages/filter/Filter';
 
 
-function app() {
+function App() {
+
+  const [gender, setGender] = useState()
+  const [age, setAge] = useState()
+
+  function onChangeGender(params) {
+    setGender(params)
+  }
+  function onChangeAge(params) {
+    setAge(params)
+  }
+
   return (
 
     <Router>
-      <div>
-        <Switch>
-          <Route path="/result">
+        <Route exact path='/' render={props => (
+          <div>
+            <h1>Shopping</h1>
+            <Filter gender={gender} age={age} callOnChangeGender={onChangeGender} callOnChangeAge={onChangeAge}></Filter>
+            <Link to='/result'>
+              <button>Search</button>
+            </Link>
+          </div>
+        )} />
+        <Route exact path='/result' render={props => (
+          <div>
             <Result />
-          </Route>
-        </Switch>
-      </div>
+          </div>
+        )} />
     </Router>
   );
 }
 
-export default app;
+export default App;
