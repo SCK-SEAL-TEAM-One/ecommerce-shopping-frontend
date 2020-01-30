@@ -12,14 +12,15 @@ import Filter from './pages/filter/Filter'
 import Detail from './pages/detail/Detail'
 
 function App () {
-  const [gender, setGender] = useState()
+  const [gender, setGender] = useState(0)
   const [age, setAge] = useState()
 
+
   function onChangeGender (params) {
-    setGender(params)
+    setGender({value: params.target.value})
   }
   function onChangeAge (params) {
-    setAge(params)
+    setAge({value: params.target.value})
   }
 
   return (
