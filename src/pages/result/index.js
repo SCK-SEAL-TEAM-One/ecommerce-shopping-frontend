@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ResultRow from './row'
-import queryString from 'query-string'
+// import queryString from 'query-string'
 
 class Result extends Component {
   constructor (props) {
@@ -16,7 +16,7 @@ class Result extends Component {
   }
 
   fetchRow (params) {
-    const values = queryString.parse(params.location.search)
+    //const values = queryString.parse(params.location.search)
 
     // fetch(`http://localhost/api/v1/products?age_id=${encodeURIComponent(values.age)}&gerder_id=${encodeURIComponent(values.gender)}`, {
     //   method: "GET",
