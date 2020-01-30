@@ -57,7 +57,7 @@ class Result extends Component {
           </thead>
           <tbody>
 
-            {this.state.products.map((product) => <ResultRow item={product} />)}
+            {this.state.products.map((product,index) => <ResultRow item={product} index={index+1}/>)}
 
           </tbody>
         </table>

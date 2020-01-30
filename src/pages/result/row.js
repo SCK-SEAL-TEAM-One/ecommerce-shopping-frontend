@@ -13,10 +13,10 @@ from 'react-router-dom'
 function ResultRow (props) {
   return (
     <tr>
-      <td>{props.item.id}</td>
-      <td>{props.item.name}</td>
-      <td>{props.item.price}</td>
-      <td>{props.item.brand}</td>
+      <td id={`dld_product_result_no_${props.index}`}>{props.index}</td>
+      <td id={`dld_product_result_name_${props.index}`}>{props.item.name}</td>
+      <td id={`dld_product_result_price_${props.index}`}>{props.item.price}</td>
+      <td id={`dld_product_result_brand_${props.index}`}>{props.item.brand}</td>
       <td>
         <Link to={`/detail?id=${props.item.id}`}>
           <button id={`btn_product_detail_${props.item.id}`}>View Details</button>
