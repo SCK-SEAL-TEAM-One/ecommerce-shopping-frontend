@@ -1,10 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Dropdown from 'react-dropdown'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
 import 'react-dropdown/style.css'
 
 function Filter (props) {
@@ -34,17 +29,14 @@ function Filter (props) {
           })
         }
       </select>
-      {/* <div id='ddl_gender'>
-        <Dropdown options={genderOptions}
-          onChange={props.callOnChangeGender} value={props.gender}
-          placeholder="Select Gender" />
-      </div> */}
-      <div id='ddl_age'>
-        <Dropdown options={ageOptions}
-          onChange={props.callOnChangeAge} value={props.age}
-          placeholder="Select Age" />
-      </div>
-      <button id='btn_filter' onClick={e => console.log(props.gender.value)}>Search</button>
+      <select id='ddl_age' onChange={props.callOnChangeAge}>
+        {
+          ageOptions.map((age) => {
+          return(<option value={age.value}>{age.label}</option>)
+          })
+        }
+      </select>
+  
       <button id='btn_filter' onClick={e => props.history.push(`/result?age=${props.age.value}&gender=${props.gender.value}`)}>Search</button>
     </div>
 
