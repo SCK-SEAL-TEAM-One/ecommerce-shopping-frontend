@@ -1,7 +1,14 @@
 # ecommerce-shopping-frontend
 Function And Parameter Naming Conventions
 
-## วิธี run eslint
+## Command for project
+### Command to run test (watched)
+>npm test
+### Command to run unit test (no watch)
+>npm run unittest
+### Command to build project
+>npm run build
+### Command to check code style
 >npm run lint
 
 ## File Name
