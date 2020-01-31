@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {
   BrowserRouter as Router,
   Route,
-  // Link
 } from 'react-router-dom'
 import Filter from './pages/filter/Filter'
 import Detail from './pages/detail/Detail'
+import Cart from './pages/cart/Cart'
 
 function App () {
   const [gender, setGender] = useState(0)
@@ -37,9 +37,16 @@ function App () {
           <Result {...props}/>
         </div>
       )} />
-      <Route path='/detail'>
-        <Detail></Detail>
-      </Route>
+      <Route exact path='/detail' render={props => (
+        <div>
+          <Detail {...props}/>
+        </div>
+      )} />
+      <Route exact path='/cart' render={props => (
+        <div>
+          <Cart {...props}/>
+        </div>
+      )} />
     </Router>
   )
 }
