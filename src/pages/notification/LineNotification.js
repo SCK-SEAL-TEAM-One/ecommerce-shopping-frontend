@@ -7,7 +7,7 @@ function LineNotification () {
       <div style={{ border: '4px solid' }}>
         <p>ยืนยันการชำระสินค้า</p>
         <p>หมายเลขสั่งซื้อ <label id='lbl_order'>276478095367221</label></p>
-        <p>ค่าบริการทั้งหมด <label id='lbl_amount'>2399.44</label> <label>THB</label></p>
+        <p>ค่าบริการทั้งหมด <label id='lbl_amount'>2399.82</label> <label>THB</label></p>
       </div><br />
 
       <div style={{ border: '4px solid' }}>

@@ -12,6 +12,7 @@ import Detail from './pages/detail/Detail'
 import Cart from './pages/cart/Cart'
 import Verify from './pages/verify'
 import Shipping from './pages/shipping/Shipping'
+import Payment from './pages/payment/Payment'
 import LineNotification from './pages/notification/LineNotification'
 
 function App() {
@@ -57,15 +58,14 @@ function App() {
       )} />
       <Route path='/shipping' render={props => (
         <div>
-          <Shipping />
+          <Shipping {...props} />
         </div>
       )} />
         <Route path='/payment' render={props => (
           <div>
-            <Payment />
+            <Payment {...props} />
           </div>
         )} />
-      </Router>
       <Route path='/linenotification' render={props => (
         <div>
           <LineNotification />

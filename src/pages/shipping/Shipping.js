@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom'
 import ShippingDetail from '../../pages/shipping/ShippingDetail'
 
-function Shipping () {
+function Shipping (props) {
   return (
     <div style={{ marginLeft: '10px' }}>
       <ShippingDetail />
@@ -85,9 +85,7 @@ function Shipping () {
             <th>
             </th>
             <td>
-              <Link to={'/payment'}>
-                <button id='btn_shipping_next'>Next</button>
-              </Link>
+            <button id='btn_shipping_next' style={{width: "80px"}} onClick={e => props.history.push(`/payment`)}>Next</button>
             </td>
           </tr>
         </tbody>
