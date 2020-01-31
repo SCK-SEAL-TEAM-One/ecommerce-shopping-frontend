@@ -1,6 +1,6 @@
 import React from 'react'
-import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
+import PropTypes from 'prop-types'
 
 function Filter (props) {
   const genderOptions = [
@@ -24,23 +24,29 @@ function Filter (props) {
     <div id='filter'>
       <select id='ddl_gender' onChange={props.callOnChangeGender}>
         {
-          genderOptions.map((gender) => {
-          return(<option value={gender.value}>{gender.label}</option>)
+          genderOptions.map((gender, index) => {
+            return (<option key={index} value={gender.value}>{gender.label}</option>)
           })
         }
       </select>
       <select id='ddl_age' onChange={props.callOnChangeAge}>
         {
-          ageOptions.map((age) => {
-          return(<option value={age.value}>{age.label}</option>)
+          ageOptions.map((age, index) => {
+            return (<option key={index} value={age.value}>{age.label}</option>)
           })
         }
       </select>
-  
       <button id='btn_filter' onClick={e => props.history.push(`/result?age=${props.age.value}&gender=${props.gender.value}`)}>Search</button>
     </div>
 
   )
 }
 
+Filter.propTypes = {
+  history: PropTypes.object,
+  callOnChangeAge: PropTypes.func.isRequired,
+  callOnChangeGender: PropTypes.func.isRequired,
+  age: PropTypes.object,
+  gender: PropTypes.object
+}
 export default Filter
