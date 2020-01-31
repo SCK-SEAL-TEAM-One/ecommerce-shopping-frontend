@@ -109,7 +109,7 @@ class Detail extends Component {
         if(productList.length > 0){
             let c = false
             for(var i = 0; i < productList.length; i++){
-                if(productList[i].id === this.state.product.id){
+                if(productList[i].id == this.state.product.id){
                   productList[i].qty = String(parseInt(productList[i].qty) + parseInt(this.state.product.qty));
                   c = true;
                   
