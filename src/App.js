@@ -60,12 +60,19 @@ function App() {
           <Shipping />
         </div>
       )} />
+        <Route path='/payment' render={props => (
+          <div>
+            <Payment />
+          </div>
+        )} />
+      </Router>
       <Route path='/linenotification' render={props => (
         <div>
           <LineNotification />
         </div>
       )} />
     </Router>
+
   )
 }
 

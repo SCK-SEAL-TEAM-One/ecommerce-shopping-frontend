@@ -16,7 +16,8 @@ bower_components
 psd
 thumb
 sketch
-
+build.tar
+/build
 /cypress/integration/examples
 
 # End of https://www.gitignore.io/api/react
