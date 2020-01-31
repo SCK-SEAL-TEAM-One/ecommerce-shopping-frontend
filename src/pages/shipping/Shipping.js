@@ -1,9 +1,14 @@
 import React from 'react'
+import {
+    BrowserRouter as Link
+} from 'react-router-dom'
+import ShippingDetail from '../../pages/shipping/ShippingDetail'
 
 function Shipping() {
     return (
         <div>
-            <table>
+            <ShippingDetail />
+            <table id='shipping_address'><br />
                 <tbody>
                     <tr>
                         <th>
@@ -80,7 +85,9 @@ function Shipping() {
                         <th>
                         </th>
                         <td>
-                            <button id='btn_shipping_next'>Next</button>
+                            <Link to={'/payment'}>
+                                <button id='btn_shipping_next'>Next</button>
+                            </Link>
                         </td>
                     </tr>
                 </tbody>
