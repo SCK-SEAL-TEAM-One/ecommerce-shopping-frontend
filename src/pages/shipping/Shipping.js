@@ -6,7 +6,7 @@ import ShippingDetail from '../../pages/shipping/ShippingDetail'
 
 function Shipping() {
     return (
-        <div>
+        <div style={{ marginLeft: '10px' }}>
             <ShippingDetail />
             <table id='shipping_address'><br />
                 <tbody>
