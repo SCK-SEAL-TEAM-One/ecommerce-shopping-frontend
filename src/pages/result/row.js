@@ -1,14 +1,9 @@
 import React from 'react'
-import 
-{
-  // BrowserRouter as Router,
-  //Switch,
-  //Route,
-  Link,
-  //useRouteMatch,
-  //useParams
+import PropTypes from 'prop-types'
+import {
+  Link
 }
-from 'react-router-dom'
+  from 'react-router-dom'
 
 function ResultRow (props) {
   return (
@@ -24,6 +19,11 @@ function ResultRow (props) {
       </td>
     </tr>
   )
+}
+
+ResultRow.propTypes = {
+  index: PropTypes.string,
+  item: PropTypes.object
 }
 
 export default ResultRow
