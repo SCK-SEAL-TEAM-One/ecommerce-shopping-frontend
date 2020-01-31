@@ -9,6 +9,6 @@ context('Actions', () => {
         cy.get('#lbl_payment_status')
             .should('contain', 'Success')
         cy.get('#btn_payment_ok').click()
-        cy.url().should('include', '/notification')
+        cy.url().should('include', '/linenotification')
     })
 })

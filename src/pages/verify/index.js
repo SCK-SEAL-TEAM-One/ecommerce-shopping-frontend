@@ -6,7 +6,7 @@ class Verify extends Component {
     return (
       <div>
         <div id="lbl_payment_status">Success</div>
-        <button id='btn_payment_ok' onClick={e => this.props.history.push('/notification')}>OK</button>
+        <button id='btn_payment_ok' onClick={e => this.props.history.push('/linenotification')}>OK</button>
       </div>
     )
   }
