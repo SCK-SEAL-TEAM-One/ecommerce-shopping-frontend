@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ResultRow from './row'
-// import queryString from 'query-string'
 
 class Result extends Component {
   constructor (props) {
@@ -8,7 +7,6 @@ class Result extends Component {
     this.state = {
       products: []
     }
-    // this.fetchRow(props);
   }
 
   componentDidMount () {
@@ -16,12 +14,6 @@ class Result extends Component {
   }
 
   fetchRow (params) {
-    //const values = queryString.parse(params.location.search)
-
-    // fetch(`http://localhost/api/v1/products?age_id=${encodeURIComponent(values.age)}&gerder_id=${encodeURIComponent(values.gender)}`, {
-    //   method: "GET",
-    // })
-
     this.setState({
       products: [
         {
@@ -57,7 +49,9 @@ class Result extends Component {
           </thead>
           <tbody>
 
-            {this.state.products.map((product,index) => <ResultRow item={product} index={index+1}/>)}
+            {this.state.products.map((product, index) => {
+              return <ResultRow key={index} item={product} index={index + 1} />
+            })}
 
           </tbody>
         </table>
