@@ -11,6 +11,7 @@ import Filter from './pages/filter/Filter'
 import Detail from './pages/detail/Detail'
 import Cart from './pages/cart/Cart'
 import Shipping from './pages/shipping/Shipping'
+import LineNotification from './pages/notification/LineNotification'
 
 function App () {
   const [gender, setGender] = useState(0)
@@ -51,6 +52,11 @@ function App () {
       <Route path='/shipping' render={props => (
         <div>
           <Shipping />
+        </div>
+      )} />
+      <Route path='/linenotification' render={props => (
+        <div>
+          <LineNotification />
         </div>
       )} />
     </Router>
