@@ -11,17 +11,18 @@ import Filter from './pages/filter/Filter'
 import Detail from './pages/detail/Detail'
 import Cart from './pages/cart/Cart'
 import Verify from './pages/verify'
+import Shipping from './pages/shipping/Shipping'
 
-function App () {
+function App() {
   const [gender, setGender] = useState(0)
   const [age, setAge] = useState()
 
 
-  function onChangeGender (params) {
-    setGender({value: params.target.value})
+  function onChangeGender(params) {
+    setGender({ value: params.target.value })
   }
-  function onChangeAge (params) {
-    setAge({value: params.target.value})
+  function onChangeAge(params) {
+    setAge({ value: params.target.value })
   }
 
   return (
@@ -33,24 +34,29 @@ function App () {
           <Filter gender={gender} age={age} callOnChangeGender={onChangeGender} callOnChangeAge={onChangeAge} {...props}></Filter>
         </div>
       )} />
-      <Route exact path='/result' render={props => (
+      <Route path='/result' render={props => (
         <div>
-          <Result {...props}/>
+          <Result {...props} />
         </div>
       )} />
-      <Route exact path='/detail' render={props => (
+      <Route path='/detail' render={props => (
         <div>
-          <Detail {...props}/>
+          <Detail {...props} />
         </div>
       )} />
-      <Route exact path='/cart' render={props => (
+      <Route path='/cart' render={props => (
         <div>
-          <Cart {...props}/>
+          <Cart {...props} />
         </div>
       )} />
       <Route exact path='/verify' render={props => (
         <div>
-          <Verify {...props}/>
+          <Verify {...props} />
+        </div>
+      )} />
+      <Route path='/shipping' render={props => (
+        <div>
+          <Shipping />
         </div>
       )} />
     </Router>
