@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import { Link } from 'react-router-dom'
+import productImage30 from '../../30.jpg'
 
 class Cart extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class Cart extends Component {
       return products;
     }
 
-    amountOptions = [
+    qtyOptions = [
         { value: "1", label: '1' },
         { value: "2", label: '2' },
         { value: "3", label: '3' },
@@ -28,7 +29,7 @@ class Cart extends Component {
         { value: "5", label: '5' }
     ]
 
-    selectAmount(id, v){
+    selectQty(id, v){
       let productList = this.getProduct()
       for(var i = 0; i < productList.length; i++){
         if(productList[i].id === id){
@@ -60,7 +61,7 @@ class Cart extends Component {
     render() {
       return (
         <div id="result" className="table">
-        <h1 id="txt_result">Cart</h1>
+        <h1 id="txt_result">Cart Item</h1>
         <table>
             <thead>
                 <tr>
@@ -75,17 +76,17 @@ class Cart extends Component {
             <tbody>
               {this.state.cart.map((product) => 
                 <tr>
-                  <td><img id={`img_product_${product.id}`} src={product.id} alt='Product Image' /></td>
-                  <td>{product.name}</td>
-                  <td>{product.qty}</td>
-                  <td>{product.price}</td>
-                    <td>
-                    <Dropdown options={this.amountOptions}
-                    onChange={this.selectAmount.bind(this, product.id)} value={product.qty}/>
+                  <td><img id={`img_product_${product.id}`} src={productImage30} alt='Product Image' /></td>
+                  <td id={`lbl_product_name_${product.id}`}>{product.name}</td>
+                  <td>
+                  <Dropdown id={`ddl_product_qty_${product.id}`} options={this.qtyOptions}
+                    onChange={this.selectQty.bind(this, product.id)} value={String(product.qty)}/>
                     </td>
+                  <td id={`lbl_unit_price_${product.id}`}>{product.price}</td>
+                  <td id={`lbl_product_total_amount_${product.id}`}>{product.qty * product.price}</td>
 
                   <td>
-                    <button onClick={this.removeProduct.bind(this, product.id)}>Remove</button>
+                    <button id={`btn_product_remove_${product.id}`} onClick={this.removeProduct.bind(this, product.id)}>Remove</button>
                       </td>
                 </tr>
               )}

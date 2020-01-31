@@ -1,5 +1,7 @@
 import React, { useState, Component } from 'react'
 import logo from '../../logo192.png'
+import productImage30 from '../../30.jpg'
+import productImage26 from '../../26.jpg'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import queryString from 'query-string'
@@ -34,29 +36,12 @@ class Detail extends Component {
             brand: "CoolKidz",
         }
 
-
         if(values.id == "26") product = product26
         if(values.id == "30") product = product30
         this.state = { 
             product: product,
             productId : "1",
         };
-
-//     let product = {
-//         id: values.id,
-//         name: "Fisher-Price stroller",
-//         img: "1111",
-//         detail: "asd",
-//         price: "25.99",
-//         qty: "1",
-//         gender: "F",
-//         age: "2",
-//         brand: "CoolKidz",
-//     }
-
-
-        
-
     }
 
     qtyOptions = [
@@ -110,7 +95,7 @@ class Detail extends Component {
             let c = false
             for(var i = 0; i < productList.length; i++){
                 if(productList[i].id == this.state.product.id){
-                  productList[i].qty = String(parseInt(productList[i].qty) + parseInt(this.state.product.qty));
+                    productList[i].qty = parseInt(productList[i].qty) + parseInt(this.state.product.qty);
                   c = true;
                   
                   break;
@@ -127,12 +112,17 @@ class Detail extends Component {
         this.props.history.push(`/cart`)
     }
 
-    onChangeQty(props){
-        this.state.product.qty = String(props.value)
+    onChangeQty(e){
+        let {name, value} = e.target;
+        this.state.product.qty = String(value)
     }
 
     buyNow(){
         //this.props.history.push(`/Cart`)
+    }
+
+    productImage(p, e){
+        return this.productImage30
     }
 
     render() {
@@ -143,7 +133,7 @@ class Detail extends Component {
             <tbody>
                 <tr>
                 <th>
-                    <img id='img_product_no' src={logo} alt='Logo' />
+                    <img id='img_product_no' src={productImage30} alt='Logo' />
                 </th>
                 </tr>
                 <tr>
@@ -159,7 +149,7 @@ class Detail extends Component {
                                 Product Detail:
                 </th>
                 <td>
-                    <label id='lbl_product_name'>{this.state.product.detail}</label>
+                    <label id='lbl_product_detail'>{this.state.product.detail}</label>
                 </td>
                 </tr>
                 <tr>
@@ -169,7 +159,7 @@ class Detail extends Component {
                 </th>
                 <td>
                     <br/>
-                    <label id='lbl_product_name'>{this.state.product.price}</label>
+                    <label id='lbl_product_price'>{this.state.product.price}</label>
                 </td>
                 </tr>
                 <tr>
@@ -178,9 +168,14 @@ class Detail extends Component {
                 </th>
                 <td>
                     <br/>
-                    <Dropdown id='ddl_qty' options={this.qtyOptions}
-                    onChange={this.onChangeQty.bind(this)} value={this.state.productId}
-                    placeholder="Select Quantity" />
+                    <select id='ddl_qty' onChange={this.onChangeQty.bind(this)}>
+                        {
+                        this.qtyOptions.map((q) => {
+                        return(<option value={q.value}>{q.label}</option>)
+                        })
+                        }
+                    </select>
+   
                 </td>
                 </tr>
                 <tr>
