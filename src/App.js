@@ -10,19 +10,20 @@ import {
 import Filter from './pages/filter/Filter'
 import Detail from './pages/detail/Detail'
 import Cart from './pages/cart/Cart'
+import Verify from './pages/verify'
 import Shipping from './pages/shipping/Shipping'
 import LineNotification from './pages/notification/LineNotification'
 
-function App () {
+function App() {
   const [gender, setGender] = useState(0)
   const [age, setAge] = useState()
 
 
-  function onChangeGender (params) {
-    setGender({value: params.target.value})
+  function onChangeGender(params) {
+    setGender({ value: params.target.value })
   }
-  function onChangeAge (params) {
-    setAge({value: params.target.value})
+  function onChangeAge(params) {
+    setAge({ value: params.target.value })
   }
 
   return (
@@ -36,17 +37,22 @@ function App () {
       )} />
       <Route path='/result' render={props => (
         <div>
-          <Result {...props}/>
+          <Result {...props} />
         </div>
       )} />
       <Route path='/detail' render={props => (
         <div>
-          <Detail {...props}/>
+          <Detail {...props} />
         </div>
       )} />
       <Route path='/cart' render={props => (
         <div>
-          <Cart {...props}/>
+          <Cart {...props} />
+        </div>
+      )} />
+      <Route exact path='/verify' render={props => (
+        <div>
+          <Verify {...props} />
         </div>
       )} />
       <Route path='/shipping' render={props => (
